@@ -284,6 +284,8 @@
 	}
 	.team {
 		margin: 0 -1.25vw;
+		display: flex;
+		flex-wrap: wrap;
 		> div {
 			padding: 1.25vw;
 			@media (min-width: 992px) {
