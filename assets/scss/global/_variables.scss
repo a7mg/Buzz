@@ -1,0 +1,58 @@
+$base-size: 18;
+@function rem($target, $context: $base-size) {
+	@return (calc($target / $base-size)) * 1rem;
+}
+@function vw($target, $context: $base-size) {
+	@return (calc($target / $base-size)) * 1rem;
+}
+
+// colors
+$white: #ffffff;
+$black: #000000;
+$darkGreen: #002D1F;
+$primary: #A4FFB1;
+$white-f: #f8f8f8;
+
+$imgPath: "../../images";
+$globalGap: rem(50);
+
+/////////////////////////////////////////////
+$default-behaviour: true; //  true or false
+
+//== font-families
+@font-face {
+	font-family: "AeonikLight";
+	src: url(../../fonts/Aeonik-Light.ttf);
+}
+@font-face {
+	font-family: "AeonikRegular";
+	src: url(../../fonts/Aeonik-Regular.ttf);
+}
+@font-face {
+	font-family: "AeonikMedium";
+	src: url(../../fonts/Aeonik-Medium.ttf);
+}
+@font-face {
+	font-family: "CalvinoItalic";
+	src: url(../../fonts/Calvino-Italic-Variable-trial.ttf);
+}
+@font-face {
+	font-family: "CalvinoGrandeItalic";
+	src: url(../../fonts/Calvino-Grande-Italic-Variable-trial.ttf);
+}
+
+$AeonikLight: "AeonikLight";
+$AeonikRegular: "AeonikRegular";
+$AeonikMedium: "AeonikMedium";
+$CalvinoItalic: "CalvinoItalic";
+$CalvinoGrandeItalic: "CalvinoGrandeItalic";
+
+//
+// font family
+$font-family-default: $AeonikRegular;
+$font-numbers-default: $AeonikRegular;
+$fonts-map-default: ();
+// font family
+$font-family-reverse: $AeonikRegular;
+$font-numbers-reverse: $AeonikRegular;
+$fonts-map-reverse: ();
