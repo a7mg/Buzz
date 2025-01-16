@@ -22,7 +22,11 @@ $(document)
         $(this).toggleClass('open');
         $('header').toggleClass('menu-opend');
     })
-
+$('.home-hero .text a').hover(function () {
+    $('.home-hero').addClass('hover');
+}, function () {
+    $('.home-hero').removeClass('hover');
+})
 /*=====================================*
  * CURSOR 
 /*=====================================*/
@@ -43,6 +47,23 @@ function onDocumentReady() {
     }
     initScroll();
     slideShow();
+    if ($('.about').length) {
+        $('.about-tags.carousel').flickity({
+            cellAlign: 'left',
+            contain: true,
+            prevNextButtons: false,
+            pageDots: false,
+        });
+        $('.clients.carousel').flickity({
+            cellAlign: 'left',
+            contain: true,
+            prevNextButtons: false,
+            pageDots: false,
+            autoPlay: 1500,
+            pauseAutoPlayOnHover: false,
+            wrapAround: true
+        });
+    }
 }
 function activateMenuLink() {
     var currentPath = window.location.pathname.replace('/', '');

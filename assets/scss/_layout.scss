@@ -9,13 +9,13 @@ html {
     direction: ltr;
   }
   @media (min-width: 1800px) {
-    font-size: 18px;
-  }
-  @media (min-width: 2000px) {
-    font-size: 0.8vw;
-  }
-  @media (max-width: 1750px) {
     font-size: 16px;
+  }
+  // @media (min-width: 2000px) {
+  //   font-size: 0.8vw;
+  // }
+  @media (max-width: 1800px) {
+    font-size: 14px;
   }
   @media (max-width: 1280px) {
     font-size: 14px;
@@ -78,22 +78,22 @@ button:focus {
   box-shadow: none;
 }
 .fontItelic {
-  font-family: $CalvinoItalic;
+  font-family: $CalvinoItalic !important;
 }
 .fontItelicGrand {
-  font-family: $CalvinoGrandeItalic;
+  font-family: $CalvinoGrandeItalic !important;
 }
 .font-30 {
-  font-size: 1.7vw !important;
+  font-size: rem(30) !important;
 }
 .font-40 {
-  font-size: 2vw !important;
+  font-size: rem(40) !important;
 }
 .mb-50 {
-  margin-bottom: 2vw;
+  margin-bottom: rem(50);
 }
 .mb-60 {
-  margin-bottom: 3vw;
+  margin-bottom: rem(60);
 }
 /****************/
 .btn {
@@ -156,10 +156,8 @@ button:focus {
 .container {
   width: 100%;
   margin: auto;
-  padding: 0 2%;
-  @media (max-width: 767px) {
-    padding: 0 rem(15);
-  }
+  padding: 0 rem(15);
+  max-width: 1795px;
 }
 header {
   position: fixed;
@@ -168,7 +166,7 @@ header {
   left: 0;
   z-index: 999;
   .header-wrapper {
-    padding: 2vw 0 0;
+    padding: rem(50) 0 0;
     display: flex;
     justify-content: space-between;
   }
@@ -176,7 +174,7 @@ header {
     position: relative;
     z-index: 999;
     img, svg {
-      height: 6.5vw;
+      height: rem(130);
     }
   }
   svg path {
@@ -189,7 +187,7 @@ header {
       list-style: none;
       li {
         & + li {
-          padding-left: 3.7vw;
+          padding-left: rem(70);
         }
       }
     }
@@ -197,8 +195,8 @@ header {
   a {
     color: $primary;
     font-family: $AeonikLight;
-    font-size: 2vw;
-    padding: 0.1vw;
+    font-size: rem(38);
+    padding: rem(5);
     text-transform: capitalize;
     display: block;
     &:hover {
