@@ -18,6 +18,9 @@ $(document)
     .on('click', '.backtop', function () {
         $('html, body').animate({ scrollTop: 0 });
     })
+    .on('click', '.navs-menu a', function () {
+        $(this).addClass('active');
+    })
     .on('click', 'header .menu-btn', function () {
         $(this).toggleClass('open');
         $('header').toggleClass('menu-opend');
@@ -43,7 +46,7 @@ $(document)
 function onDocumentReady() {
     if (location.href.includes('127.0.0.1') || location.href.includes('surge')) {
         $("header").load("partial/header.html", activateMenuLink);
-        $("footer").load("partial/footer.html");
+        $("footer").load("partial/footer.html", startMarquee);
     }
     initScroll();
     slideShow();
@@ -62,6 +65,14 @@ function onDocumentReady() {
             autoPlay: 1500,
             pauseAutoPlayOnHover: false,
             wrapAround: true
+        });
+    }
+    if ($('.filter').length) {
+        $('.filter').flickity({
+            cellAlign: 'left',
+            contain: true,
+            prevNextButtons: false,
+            pageDots: false,
         });
     }
 }
@@ -114,7 +125,9 @@ function onWindowScroll() {
 
 function global() {
     headerTheme();
-    startMarquee();
+    if ($('.marquee').length) {
+        startMarquee();
+    }
 }
 /*=====================================*/
 function headerTheme() {
@@ -167,30 +180,8 @@ $.fn.isInViewport = function () {
 };
 
 function startMarquee() {
-    var $marquee = $('.marquee');
-    var $contentWrap = $('.marquee-content');
-    var $content = $('.marquee-content div');
-    $content.clone().appendTo($contentWrap);
-    $content.clone().appendTo($contentWrap);
-    var totalWidth = $contentWrap.outerWidth();
-    function animateMarquee() {
-        $marquee.find('.marquee-content').first().animate(
-            { left: -totalWidth },
-            15000,
-            'linear',
-            function () {
-                $(this).css('left', totalWidth);
-                animateMarquee();
-            }
-        );
-    }
-    animateMarquee();
-    $marquee.hover(
-        function () {
-            $marquee.find('.marquee-content').stop();
-        },
-        function () {
-            animateMarquee();
-        }
-    );
+    new InfiniteMarquee({
+        element: '.marquee-content',
+        speed: 50000,
+    });
 }

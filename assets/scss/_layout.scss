@@ -173,7 +173,8 @@ header {
   .logo-container {
     position: relative;
     z-index: 999;
-    img, svg {
+    img,
+    svg {
       height: rem(130);
     }
   }
@@ -196,22 +197,39 @@ header {
     color: $primary;
     font-family: $AeonikLight;
     font-size: rem(38);
-    padding: rem(5);
+    padding: 0 rem(5);
     text-transform: capitalize;
     display: block;
-    &:hover {
-      color: #fff;
-    }
-    &.active {
-      padding-bottom: 0;
+    position: relative;
+    &:after {
+      content: attr(data-hover);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       font-family: $CalvinoGrandeItalic;
+      color: #fff;
+      opacity: 0;
+      padding-top: rem(10);
+    }
+    &:hover,
+    &.active {
+      span {
+        opacity: 0;
+      }
+      &:after {
+        opacity: 1;
+      }
     }
   }
   &.dark {
     a {
       color: $darkGreen;
-      &:hover {
-        color: $primary;
+      &:hover,
+      &.active {
+        &:after {
+          color: $primary;
+        }
       }
     }
     svg path {
@@ -251,6 +269,7 @@ header {
       justify-content: center;
       background-color: $darkGreen;
       // justify-content: start;
+      text-align: center;
       ul {
         display: block;
       }
@@ -414,7 +433,7 @@ footer {
     padding: rem(20) 0;
     position: relative;
     white-space: nowrap;
-    animation: marquee 10s linear infinite;
+    // animation: marquee 10s linear infinite;
     div {
       display: inline-block;
     }
