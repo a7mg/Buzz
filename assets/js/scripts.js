@@ -77,13 +77,13 @@ function onDocumentReady() {
             prevNextButtons: false,
             pageDots: false,
         });
-        $('.filter button').on('click', function () {
-            $('.filter button').removeClass('active');
-            $(this).addClass('active');
-            // setTimeout(() => {
-            //     filterBtns.flickity('resize');
-            // }, 200);
-        })
+        // $('.filter button').on('click', function () {
+        //     $('.filter button').removeClass('active');
+        //     $(this).addClass('active');
+        //     // setTimeout(() => {
+        //     //     filterBtns.flickity('resize');
+        //     // }, 200);
+        // })
     }
 }
 function activateMenuLink() {
