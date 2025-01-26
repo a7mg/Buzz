@@ -17,6 +17,7 @@
 	align-items: center;
 	background-color: $darkGreen;
 	color: $primary;
+	overflow: hidden;
 	.container {
 		@media (min-width: 1200px) {
 			padding: 0 3vw;
@@ -24,11 +25,11 @@
 	}
 	&.hover {
 		.text {
-			> *:not(.text-hover) {
+			> *:not(.text-hover.active) {
 				opacity: 0.2;
 			}
 		}
-		.text-hover .project {
+		.text-hover.active .item {
 			opacity: 1;
 			visibility: visible;
 		}
@@ -37,6 +38,10 @@
 		line-height: 1.2;
 		margin: 0 0 rem(40);
 		font-size: rem(80);
+		> * {
+			opacity: 1;
+			transition: opacity ease 0.5s;
+		}
 		&.home {
 			font-size: rem(84);
 		}
@@ -66,7 +71,7 @@
 	display: inline-block;
 	position: relative;
 	z-index: 1;
-	.project {
+	.item {
 		// display: none;
 		visibility: hidden;
 		opacity: 0;
@@ -152,11 +157,11 @@
 		white-space: nowrap;
 		color: #094d20;
 		line-height: 1;
+		font-family: $CalvinoGrandeItalic;
 		@media (max-width: 767px) {
 			font-size: rem(50);
 		}
 		&:not(.active) {
-			font-family: $CalvinoGrandeItalic;
 		}
 		&.active {
 			border-bottom: 1px solid $primary;
@@ -170,9 +175,9 @@
 }
 .projects-list {
 	padding: rem(30) 0 rem(180);
-	.container {
-		padding: 0 rem(27);
-	}
+	// .container {
+	// 	padding: 0 rem(27);
+	// }
 	.list-items {
 		margin: 0 rem(-27);
 		display: flex;

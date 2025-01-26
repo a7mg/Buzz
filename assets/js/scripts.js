@@ -26,9 +26,12 @@ $(document)
         $('header').toggleClass('menu-opend');
     })
 $('.home-hero .text a').hover(function () {
+    $('.home-hero .text-hover').removeClass('active');
+    $(this).parents('.text-hover').addClass('active');
     $('.home-hero').addClass('hover');
 }, function () {
     $('.home-hero').removeClass('hover');
+    $('.home-hero .text-hover').removeClass('active');
 })
 /*=====================================*
  * CURSOR 
@@ -68,12 +71,19 @@ function onDocumentReady() {
         });
     }
     if ($('.filter').length) {
-        $('.filter').flickity({
+        let filterBtns = $('.filter').flickity({
             cellAlign: 'left',
             contain: true,
             prevNextButtons: false,
             pageDots: false,
         });
+        $('.filter button').on('click', function () {
+            $('.filter button').removeClass('active');
+            $(this).addClass('active');
+            // setTimeout(() => {
+            //     filterBtns.flickity('resize');
+            // }, 200);
+        })
     }
 }
 function activateMenuLink() {

@@ -158,6 +158,9 @@ button:focus {
   margin: auto;
   padding: 0 rem(15);
   max-width: 1795px;
+  @media (min-width: 1200px) {
+    padding: 0 2.5vw;
+  }
 }
 header {
   position: fixed;
@@ -176,6 +179,9 @@ header {
     img,
     svg {
       height: rem(130);
+      @media (max-width: 767px) {
+        height: rem(110);
+      }
     }
   }
   svg path {
@@ -186,6 +192,7 @@ header {
       display: flex;
       align-items: end;
       list-style: none;
+      padding: 0;
       li {
         & + li {
           padding-left: rem(70);
